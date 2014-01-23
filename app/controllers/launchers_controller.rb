@@ -1,7 +1,6 @@
 class LaunchersController < ApplicationController
 
   def index
-    @superlative = Superlative.find(params[:superlative_id])
     @launchers = Launcher.all
     @launcher = Launcher.new
   end

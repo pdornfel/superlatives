@@ -19,6 +19,7 @@ class SuperlativesController < ApplicationController
   def show
     @superlative = Superlative.find(params[:id])
     @launchers = Launcher.all
+    @vote = Vote.new
   end
 
   private

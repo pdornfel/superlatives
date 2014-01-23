@@ -1,4 +1,4 @@
-class VotesController<ApplicationController
+class VotesController < ApplicationController
 
   def index
 
@@ -6,6 +6,11 @@ class VotesController<ApplicationController
 
   def create
     binding.pry
+    # superlative = Superlative.find(params)
+    # launcher = Launcher.find()
+    # vote = Vote.new(vote_params)
+
+
   end
 
 end

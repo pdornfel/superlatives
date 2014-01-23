@@ -4,7 +4,6 @@ Superlatives::Application.routes.draw do
 
   resources :superlatives do
     resources :votes
-    resources :launchers
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

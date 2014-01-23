@@ -1,7 +1,12 @@
 <h2><%= @superlative.name %></h2>
 
 <% @launchers.each do |launcher| %>
-  <%= link_to "+1", superlative_votes_path(@superlative), method: :post %><br>
+
+  <%= simple_form_for [@superlative, @vote] do |f| %>
+    <%= f.hidden_field :launcher, value:launcher.id %>
+    <%= f.button :submit, "+1" %>
+  <% end %>
+
   <%= launcher.name %><br><br>
 
 <% end %>

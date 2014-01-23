@@ -10,7 +10,5 @@
 
 
 <% @launchers.each do |launcher| %>
-  <%= link_to "+1", superlative_votes_path(@superlative, launcher), method: :post %><br>
   <%= launcher.name %><br><br>
-
 <% end %>
