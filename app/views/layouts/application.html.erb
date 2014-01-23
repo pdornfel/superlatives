@@ -11,6 +11,10 @@
     <%= csrf_meta_tags %>
   </head>
 
+  <% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: "#{name} alert-box" %>
+  <% end %>
+
   <body>
 
     <%= yield %>

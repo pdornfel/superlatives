@@ -1,0 +1,7 @@
+<h2><%= @superlative.name %></h2>
+
+<% @launchers.each do |launcher| %>
+  <%= link_to "+1", superlative_votes_path(@superlative), method: :post %><br>
+  <%= launcher.name %><br><br>
+
+<% end %>

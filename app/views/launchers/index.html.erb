@@ -8,6 +8,9 @@
 <h3><%= @launchers.count %></h3>
 
 
+
 <% @launchers.each do |launcher| %>
-  <%= launcher.name %><br>
+  <%= link_to "+1", superlative_votes_path(@superlative, launcher), method: :post %><br>
+  <%= launcher.name %><br><br>
+
 <% end %>

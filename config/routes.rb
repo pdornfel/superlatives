@@ -2,6 +2,11 @@ Superlatives::Application.routes.draw do
 
   resources :launchers
 
+  resources :superlatives do
+    resources :votes
+    resources :launchers
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
