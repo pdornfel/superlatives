@@ -6,6 +6,12 @@ Superlatives::Application.routes.draw do
     resources :votes
   end
 
+  resources :users
+
+  get 'auth/twitter/callback', to:'sessions#create'
+  # match 'auth/failure', to: redirect('/')
+  # match 'signout', to: get 'sessions#destroy', as: 'signout'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
