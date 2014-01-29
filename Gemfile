@@ -35,7 +35,6 @@ end
 gem 'omniauth-twitter'
 gem 'simple_form'
 gem 'foundation-rails'
-gem 'omniauth-twitter'
 gem 'dotenv-rails'
 gem 'omniauth'
 
@@ -49,6 +48,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'quiet_assets'
 end
 
 # Use ActiveModel has_secure_password
