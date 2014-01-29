@@ -11,6 +11,7 @@ class VotesController < ApplicationController
     # vote = Vote.new(vote_params)
 
 
+
   end
 
 end
