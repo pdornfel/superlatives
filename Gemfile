@@ -36,7 +36,7 @@ gem 'omniauth-twitter'
 gem 'simple_form'
 gem 'foundation-rails'
 gem 'omniauth-twitter'
-gem 'dotenv'
+gem 'dotenv-rails'
 gem 'omniauth'
 
 
