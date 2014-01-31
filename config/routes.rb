@@ -1,6 +1,6 @@
 Superlatives::Application.routes.draw do
 
-  root to: 'superlatives#index'
+  root to: 'welcomes#welcome'
 
   resources :launchers
 
@@ -9,6 +9,8 @@ Superlatives::Application.routes.draw do
   end
 
   resources :users
+
+  get 'welcome', to: 'welcomes#welcome'
 
   get 'auth/:provider/callback', to:'sessions#create'
   get 'auth/failure', to: redirect('/')

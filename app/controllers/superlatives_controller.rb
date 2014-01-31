@@ -6,6 +6,7 @@ class SuperlativesController < ApplicationController
   end
 
   def create
+    binding.pry
     @superlative = Superlative.new(superlative_params)
     if @superlative.save
       flash[:success] = "yay, new superlative"
@@ -27,5 +28,4 @@ class SuperlativesController < ApplicationController
   def superlative_params
     params.require(:superlative).permit(:name)
   end
-
 end
