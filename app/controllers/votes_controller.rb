@@ -12,11 +12,23 @@ class VotesController < ApplicationController
     @vote.launcher = launcher
     @vote.user = current_user
     if @vote.save
-      flash.now[:notice] = "Thanks for voting!"
+      flash[:success] = "Thanks for voting!"
       redirect_to superlative_path(superlative)
     else
-      flash.now[:notice] = "Sorry, we encountered an error!"
-      redirect_to superlatives_path
+      flash[:alert] = "You can't vote twice!"
+      redirect_to superlative_path(superlative)
+    end
+  end
+
+  def destroy
+    vote = Vote.find(params[:id])
+    superlative = Superlative.find(params[:superlative_id])
+    if vote.destroy
+      flash[:sucess] = "Vote destroyed!"
+      redirect_to superlative_path(superlative)
+    else
+      flash[:alert] = "No"
+      redirect_to superlative_path(superlative)
     end
   end
 

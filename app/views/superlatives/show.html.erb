@@ -1,14 +1,18 @@
 <h2><%= @superlative.name %></h2>
 
-<h3>Winner is <%= @superlative.winner.first.name %></h3>
+<h3>Winner is <%= @superlative.winner %></h3>
 
-<% @launchers.each do |launcher| %>
+<%if current_user.has_vote?(@superlative)%>
+  <%= link_to "Destroy Vote", superlative_vote_path(@superlative, current_user.find_vote(@superlative)), method: :delete%>
+<%else %>
+  <% @launchers.each do |launcher| %>
+    <%= simple_form_for [@superlative, @vote] do |f| %>
+      <%= f.hidden_field :launcher, value:launcher.id %>
+      <%= f.button :submit, "+1" %>
+    <% end %>
+    <%= launcher.name %><br><br>
 
-  <%= simple_form_for [@superlative, @vote] do |f| %>
-    <%= f.hidden_field :launcher, value:launcher.id %>
-    <%= f.button :submit, "+1" %>
   <% end %>
+<% end%>
 
-  <%= launcher.name %><br><br>
 
-<% end %>

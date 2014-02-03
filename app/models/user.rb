@@ -15,6 +15,17 @@ class User < ActiveRecord::Base
     end
   end
 
+  def has_vote?(superlative)
+    superlative.votes.each do |vote|
+      return true if vote.user == self
+    end
+    return false
+  end
 
-
+  def find_vote(superlative)
+    superlative.votes.each do |vote|
+      return vote if vote.user == self
+    end
+    return "vote does not exist"
+  end
 end

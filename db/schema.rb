@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140129024133) do
+ActiveRecord::Schema.define(version: 20140203212938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,5 +51,7 @@ ActiveRecord::Schema.define(version: 20140129024133) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "votes", ["user_id", "superlative_id"], name: "index_votes_on_user_id_and_superlative_id", unique: true, using: :btree
 
 end
