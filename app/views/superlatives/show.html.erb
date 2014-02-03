@@ -1,5 +1,7 @@
 <h2><%= @superlative.name %></h2>
 
+<h3>Winner is <%= @superlative.winner.first.name %></h3>
+
 <% @launchers.each do |launcher| %>
 
   <%= simple_form_for [@superlative, @vote] do |f| %>

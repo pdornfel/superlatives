@@ -13,7 +13,7 @@ class VotesController < ApplicationController
     @vote.user = current_user
     if @vote.save
       flash.now[:notice] = "Thanks for voting!"
-      redirect_to superlatives_path
+      redirect_to superlative_path(superlative)
     else
       flash.now[:notice] = "Sorry, we encountered an error!"
       redirect_to superlatives_path
