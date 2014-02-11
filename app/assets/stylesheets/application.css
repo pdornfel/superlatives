@@ -13,3 +13,13 @@
 
  *= require_tree .
  */
+
+.sign-in {
+
+  margin: auto;
+  width: 200px;
+  vertical-align: center;
+  background-color: lightblue;
+  padding: 20px;
+  text-align: center;
+}

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Superlatives" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -12,11 +12,10 @@
   </head>
 
   <% if current_user %>
-    Signed in as <%= current_user.name %>!
+    Signed in as <%= current_user.name %><br>
     <%= link_to "Sign out", signout_path %>
-  <% else %>
-    <%= link_to "Sign in with Twitter", "/auth/twitter" %>
   <% end %>
+
 
   <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, class: "#{name} alert-box" %>
@@ -25,6 +24,13 @@
   <body>
 
     <%= yield %>
+
+  <% unless current_user %>
+    <div class='sign-in'>
+      <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+    </div>
+  <% end %>
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>

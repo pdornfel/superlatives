@@ -5,12 +5,13 @@
 <%if current_user.has_vote?(@superlative)%>
   <%= link_to "Destroy Vote", superlative_vote_path(@superlative, current_user.find_vote(@superlative)), method: :delete%>
 <%else %>
+
   <% @launchers.each do |launcher| %>
+    <%= launcher.name %>
     <%= simple_form_for [@superlative, @vote] do |f| %>
       <%= f.hidden_field :launcher, value:launcher.id %>
       <%= f.button :submit, "+1" %>
     <% end %>
-    <%= launcher.name %><br><br>
 
   <% end %>
 <% end%>
