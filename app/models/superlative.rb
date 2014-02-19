@@ -6,6 +6,7 @@ class Superlative < ActiveRecord::Base
   has_many :launchers, through: :launcher_superlatives
   has_many :votes, dependent: :destroy
 
+  belongs_to :group
 
   def winner
     count_hash = Hash.new(0)

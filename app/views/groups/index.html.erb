@@ -1,0 +1,8 @@
+<% unless current_user %>
+  <h1>Welcome!  You must sign in via Twitter to vote.</h1>
+<% else %>
+  <%= simple_form_for @group do |f| %>
+    <%= f.text_field :name, placeholder: "Create a group name" %>
+    <%= f.button :submit, class: 'button' %>
+  <% end %>
+<% end %>

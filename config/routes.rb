@@ -1,8 +1,11 @@
 Superlatives::Application.routes.draw do
 
-  root to: 'welcomes#welcome'
 
-  resources :launchers
+  root to: 'groups#index'
+
+  resources :groups do
+    resources :launchers
+  end
 
   resources :superlatives do
     resources :votes

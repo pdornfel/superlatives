@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203212938) do
+ActiveRecord::Schema.define(version: 20140219204915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "groups", force: true do |t|
+    t.string   "name",       null: false
+    t.integer  "admin_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "launcher_superlatives", force: true do |t|
     t.integer  "superlative_id"
@@ -27,12 +34,21 @@ ActiveRecord::Schema.define(version: 20140203212938) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "group_id"
+  end
+
+  create_table "memberships", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "group_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "superlatives", force: true do |t|
     t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "group_id"
   end
 
   create_table "users", force: true do |t|
@@ -42,6 +58,7 @@ ActiveRecord::Schema.define(version: 20140203212938) do
     t.boolean  "admin",      default: false
     t.string   "uid"
     t.string   "provider"
+    t.integer  "group_id"
   end
 
   create_table "votes", force: true do |t|

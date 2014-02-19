@@ -1,0 +1,14 @@
+<h1><%= "ADD MEMBERS TO: #{@group.name}"%></h1>
+
+<%= simple_form_for [@group, @launcher] do |f| %>
+  <%= f.input :name %>
+  <%= f.button :submit %>
+<% end %>
+
+<h3><%= @group.launchers.count %></h3>
+
+
+
+<% @group.launchers.each do |launcher| %>
+  <%= launcher.name %><br><br>
+<% end %>

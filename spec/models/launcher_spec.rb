@@ -5,4 +5,5 @@ describe Launcher do
   it { should have_many(:superlatives).through(:launcher_superlatives) }
   it { should have_many :votes }
 
+  it {should belong_to :group}
 end

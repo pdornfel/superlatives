@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
 
   has_many :votes
-
+  belongs_to :group
+  has_many :groups, through: :memberships
+  has_many :memberships
 
   def self.from_omniauth(auth)
     where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)

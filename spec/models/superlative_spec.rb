@@ -7,6 +7,7 @@ describe Superlative do
 
   it { should have_many(:votes).dependent(:destroy)}
 
+  it {should belong_to :group}
 
 
 
