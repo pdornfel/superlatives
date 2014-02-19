@@ -1,9 +1,12 @@
 class User < ActiveRecord::Base
 
   has_many :votes
-  belongs_to :group
   has_many :groups, through: :memberships
   has_many :memberships
+
+  def groups_admin_for(current_user_id)
+    groups = self.groups.where("admin_id = ?", current_user_id)
+  end
 
   def self.from_omniauth(auth)
     where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)

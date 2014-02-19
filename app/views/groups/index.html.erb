@@ -5,4 +5,14 @@
     <%= f.text_field :name, placeholder: "Create a group name" %>
     <%= f.button :submit, class: 'button' %>
   <% end %>
+
+  <h3>User Groups</h3>
+  <% current_user.groups.each do |group| %>
+    <%= link_to group.name, group_path(group) %>
+  <% end %>
+
+  <h3>Groups I'm an Admin For</h3>
+  <% current_user.groups_admin_for(current_user.id).each do |group| %>
+    <%= link_to group.name, group_path(group) %>
+  <% end %>
 <% end %>
