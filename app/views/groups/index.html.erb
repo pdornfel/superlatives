@@ -6,13 +6,17 @@
     <%= f.button :submit, class: 'button' %>
   <% end %>
 
-  <h3>User Groups</h3>
+  <h3>Groups I Just Belong To:</h3>
   <% current_user.groups.each do |group| %>
     <%= link_to group.name, group_path(group) %>
+    <br>
+    <br>
   <% end %>
 
-  <h3>Groups I'm an Admin For</h3>
+  <h3>Groups I'm an Admin For:</h3>
   <% current_user.groups_admin_for(current_user.id).each do |group| %>
     <%= link_to group.name, group_path(group) %>
+    <br>
+    <br>
   <% end %>
 <% end %>

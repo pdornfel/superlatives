@@ -1,5 +1,7 @@
 <h1><%= "ADD MEMBERS TO: #{@group.name}"%></h1>
 
+<h3><%= link_to "Back to Group", group_path(@group) %></h3>
+
 <%= simple_form_for [@group, @launcher] do |f| %>
   <%= f.input :name %>
   <%= f.button :submit %>

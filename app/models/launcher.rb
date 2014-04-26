@@ -4,4 +4,6 @@ class Launcher < ActiveRecord::Base
   has_many :votes
 
   belongs_to :group
+
+  validates_presence_of :name
 end

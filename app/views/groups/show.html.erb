@@ -1,4 +1,9 @@
 <h3>GROUP NAME: <%=@group.name%></h3>
+<h4>Group Count: <%= @group.launchers.count %></h4>
+
+<%= link_to "Back To All Groups", groups_path %>
+<br>
+<br>
 
 <%= link_to "Add Members", new_group_launcher_path(@group) %>
 
